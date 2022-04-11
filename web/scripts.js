@@ -5,7 +5,6 @@ function placePixel(x, y,color) {
     if (x < 0 || x > 500 || y < 0 || y > 500) {
         return "Pixel out of bounds";
     } else {
-    placecanvas(x, y, color);
     // send the pixel to the server
     ws.send(JSON.stringify({
         "channel": "pixel",
@@ -41,7 +40,7 @@ ws.onmessage = function (event) {
     }
     else if (data.channel == "pixel") {
         console.log(data.pixel+ " is a placed");
-        placecanvas(data.x, data.y, data.color);
+        placecanvas(data.pixel.x, data.pixel.y, data.pixel.color);
     }
 }
 }

@@ -29,6 +29,9 @@ wss.on('connection', function (ws) {
                         console.log("Pixel already on the canvas but with a different color");
                         canvas[i].color = data.pixel.color;
                         fs.writeFileSync('canvas.json', JSON.stringify(canvas));
+                        wss.clients.forEach(function each(client) {
+                            client.send(JSON.stringify({"channel":"pixel","pixel":data.pixel}));
+                        });
                     }
                     break;
                 }
