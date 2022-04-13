@@ -15,9 +15,9 @@ p{
 }
 canvas{
     display: block;
-    margin: 0 auto;
     /* make the pixels of the canvas bigger */
-    
-    width: 100%;
-    height: 100%;
+    /* width: 1000px;
+    height: 1000px; */
+    border: 10px, solid black;
+    background-color: fff;
 }
